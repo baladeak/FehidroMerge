@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:mobile/screens/Avaliacao/AvaliacaoPage2.dart';
 import 'package:mobile/screens/Avaliacao/Inicio.dart';
 import 'package:mobile/screens/Avaliacao/PostsPage.dart';
 import 'package:mobile/screens/proposta/proposta_screen.dart';
@@ -61,7 +62,8 @@ class BaseComponent extends StatelessWidget {
             ListTile(
               title: Text('Avaliações'),
               onTap: () {
-                final destination = PostPage.routeName;
+              //  final destination = PostPage.routeName;
+                final destination = AvaliacaoPage.routeName;
                 bool isDestinationSameAsCurrent = false;
 
                 Navigator.popUntil(context, (route) {

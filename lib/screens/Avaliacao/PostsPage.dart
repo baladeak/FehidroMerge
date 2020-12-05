@@ -60,6 +60,7 @@ class _PostPageState extends State<PostPage> {
                 return ListView.builder(
                   key: Key("ListView"),
                   itemBuilder: (context, index) {
+
                     final ava = posts[index];
                     return _AvaliacaoItem(ava);
                   },

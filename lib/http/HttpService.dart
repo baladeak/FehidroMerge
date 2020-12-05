@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:http/http.dart';
+import 'package:mobile/models/Usuario.dart';
 import 'package:mobile/models/avaliacao.dart';
 import 'package:mobile/models/subpdc.dart';
 
@@ -11,6 +12,8 @@ class HttpService {
   final String urlSubpdc1 = "https://portalcbhbs-api.herokuapp.com/relatorio/subPdc/1";
   final String urlSubpdc2 = "https://portalcbhbs-api.herokuapp.com/relatorio/subPdc/2";
   final String urlRelatorioSubPdc = "https://portalcbhbs-api.herokuapp.com/subpdc";
+  final String urlgetUserId = "https://portalcbhbs-api.herokuapp.com/usuario/obterPorLogin/";
+  final String urlAvaliacaoID = "https://portalcbhbs-api.herokuapp.com/avaliacao/listarAvaliador/";
 
   //"https://jsonplaceholder.typicode.com/posts";
   Future<List<Avaliacao>> getPosts() async {
@@ -20,9 +23,38 @@ class HttpService {
       List<dynamic> body = jsonDecode(res.body);
 
       List<Avaliacao> posts =
-          body.map((dynamic item) => Avaliacao.fromJson(item)).toList();
+      body.map((dynamic item) => Avaliacao.fromJson(item)).toList();
 
       return posts;
+    } else {
+      throw "Cant get posts.";
+    }
+  }
+
+  Future<List<Avaliacao>> getPostsId(String UserId) async {
+    Response res = await get(urlAvaliacaoID+UserId);
+
+    if (res.statusCode == 200) {
+      List<dynamic> body = jsonDecode(res.body);
+
+      List<Avaliacao> posts =
+      body.map((dynamic item) => Avaliacao.fromJson(item)).toList();
+
+      return posts;
+    } else {
+      throw "Cant get posts.";
+    }
+  }
+
+  Future getUserId(String idUser) async {
+    Response res = await get(urlgetUserId+idUser);
+
+    if (res.statusCode == 200) {
+      dynamic body = jsonDecode(res.body);
+
+
+
+      return body;
     } else {
       throw "Cant get posts.";
     }

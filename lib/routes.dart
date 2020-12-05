@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:mobile/screens/Avaliacao/AvaliacaoPage2.dart';
 import 'package:mobile/screens/Avaliacao/Inicio.dart';
 import 'package:mobile/screens/Avaliacao/PostsPage.dart';
 import 'package:mobile/screens/Relatorio/RelatorioFinalScreen.dart';
@@ -13,4 +14,5 @@ final Map<String, WidgetBuilder> routes = {
   PostPage.routeName: (context) => PostPage(),
   RelatorioFinalScreen.routeName: (context) => RelatorioFinalScreen(),
   Inicio.routeName: (context) => Inicio(),
+  AvaliacaoPage.routeName: (context) => AvaliacaoPage(),
 };
